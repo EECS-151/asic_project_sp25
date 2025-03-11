@@ -63,7 +63,7 @@ module ALUTestVectorTestbench();
     /////////////////////////////////////////////////////////////////
     // Change this number to reflect the number of testcases in your
     // testvector input file, which you can find with the command:
-    // % wc -l ../sim/tests/testvectors.input
+    // % wc -l ../tests/testvectors.input
     // //////////////////////////////////////////////////////////////
     localparam testcases = 26;
 
