@@ -7,7 +7,7 @@ import argparse
 # use 'python scripts/fom.py' from the repo directory to run the script
 
 def compute_fom(f_max, cycles, area):
-    return 1e8 * (f_max * cycles) / area**(0.5)
+    return 1e-5 * (f_max * cycles) / area**(0.5)
 
 def get_fmax(gz_path="build/par-rundir/timingReports/riscv_top_postCTS_all.tarpt.gz"):
     try:
@@ -136,8 +136,8 @@ def main():
     f_max_data = get_fmax()
     if f_max_data["slack_ns"] < 0:
         raise RuntimeError(f"Negative slack: {f_max_data['slack_ns']} ns")
-    f_max = f_max_data["frequency_ghz"] / 1e9  # Convert to Hz
-    print(f"Frequency: {f_max} Hz")
+    f_max = f_max_data["frequency_ghz"] * 1000
+    print(f"Frequency: {f_max} MHz")
 
     ###### get area from innovus script ######
     print("Getting area from Innovus...")
