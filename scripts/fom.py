@@ -7,7 +7,7 @@ import argparse
 # use 'python scripts/fom.py' from the repo directory to run the script
 
 def compute_fom(f_max, cycles, area):
-    return 1e-5 * (f_max * cycles) / area**(0.5)
+    return 1e6 * (f_max / (cycles**0.5 * area**0.5))
 
 def get_fmax(gz_path="build/par-rundir/timingReports/riscv_top_postCTS_all.tarpt.gz"):
     try:
